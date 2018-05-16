@@ -1,6 +1,5 @@
 defmodule GroundhogTest do
   use ExUnit.Case
-  import ExUnit.CaptureIO
   import Groundhog
 
   test "error: not a valid function" do
