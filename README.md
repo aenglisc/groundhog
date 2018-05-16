@@ -6,7 +6,7 @@ Simply wrap your task in a zero-arity anonymous function and Bob's your uncle!
 
 Example:
 ```elixir
-Groundhog.schedule(fn -> DateTime.utc_now end)
+Groundhog.schedule(fn -> IO.puts "Then put your little hand in mine..." end)
 ```
 
 ## Installation
