@@ -11,10 +11,10 @@ defmodule Groundhog do
   """
 
   def schedule(task) when is_function(task, 0) do
-    {:ok, _pid} = DynamicSupervisor.start_child(Groundhog.Supervisor, {Groundhog.Server, task})
+    DynamicSupervisor.start_child(Groundhog.Supervisor, {Groundhog.Server, task})
   end
 
   def schedule(_) do
-    IO.puts("not a valid function")
+    {:error, :not_a_valid_function}
   end
 end
