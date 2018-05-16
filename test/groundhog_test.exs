@@ -3,14 +3,9 @@ defmodule GroundhogTest do
   import ExUnit.CaptureIO
   import Groundhog
 
-  @error "not a valid function\n"
-
-  test "error: not a function" do
-    assert @error == capture_io(fn -> schedule("test") end)
-  end
-
-  test "error: not zero arity" do
-    assert @error == capture_io(fn -> schedule(fn _ -> DateTime.utc_now end) end)
+  test "error: not a valid function" do
+    assert match?({:error, :not_a_valid_function}, schedule("test"))
+    assert match?({:error, :not_a_valid_function}, schedule(fn _ -> DateTime.utc_now end))
   end
 
   test "start task" do
