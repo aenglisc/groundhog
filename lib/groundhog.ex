@@ -5,7 +5,9 @@ defmodule Groundhog do
   Simply wrap your task in a zero-arity anonymous function and Bob's your uncle!
   
   Example:
-  ```Groundhog.schedule(fn -> DateTime.utc_now end)```
+  ```elixir
+  Groundhog.schedule(fn -> IO.puts "Then put your little hand in mine..." end)
+  ```
   """
 
   def schedule(task) when is_function(task, 0) do
